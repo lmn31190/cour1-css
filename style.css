@@ -1,0 +1,168 @@
+@font-face {
+    font-family: "font-1";
+    src: url(./assets/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: font-1, serif;
+    background: url(./assets/bg.jpg) center/cover;
+    height: 100vh;
+}
+main{
+    background-color: whitesmoke;
+    min-height: 500px;
+    width: 85%;
+    margin: 100px auto;
+    padding: 10px 40px;
+    box-shadow: 0px 5px 12px rgba(255, 255, 255, 0.396);
+    border-radius: 5px;
+}
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-size: 2.5rem;
+    color: red;
+    text-shadow: 3px 15px 25px black; /* x y blur color*/
+}
+
+/*************** FlexBox  ***************/
+
+ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+li{
+    list-style-type: none;
+    height: 160px;
+    font-size: 0.7rem;
+    width: 160px;
+    background: turquoise;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*************** /FlexBox  ***************/
+
+.positioning{
+    position: relative;
+}
+.positioning, .flexbox, .grid{
+    border: 2px solid skyblue;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/*************** Positioning  ***************/
+
+#circle{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    height: 60px;
+    width: 60px;
+    background: skyblue;
+    padding: 20px;
+    border-radius: 50%;
+    z-index: 99;
+}
+
+/*************** /Positioning  ***************/
+/*************** Flexbox  ***************/
+
+#rectangle{
+    position: absolute;
+    height: 15px;
+    width: 100px;
+    background: slateblue;
+    padding: 20px;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 98;
+}
+
+/*************** Grid  ***************/
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'i1 i2'
+    'ta ta'
+    'bt bt';
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 20px;
+}
+
+input,textarea{
+    margin: 5px;
+    height: 45px;
+    border: 1px solid darkblue;
+    padding: 10px;
+    border-radius: 5px ;
+    font-size: 1.1rem;
+    font-family: font-1;
+}
+
+textarea{
+    resize: none;
+}
+
+#firstname{
+    grid-area: i1;
+}
+
+#lastname{
+    
+    grid-area: i2;
+}
+
+textarea{
+    grid-area: ta;
+}
+
+input[type="submit"] {
+    grid-area: bt;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover{
+    background-color: aqua;
+}
+
+/**************** Responsive ****************/
+
+@media screen and (max-width: 1000px) {
+    .grid-container{
+        display: block;
+    }
+    
+    .img{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    form{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        'i1'
+        'i2'
+        'ta'
+        'bt';
+    }
+}
